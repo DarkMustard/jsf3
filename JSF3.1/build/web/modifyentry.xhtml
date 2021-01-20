@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- addentry.html -->
+<!-- Form for adding an entry to an address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   <h:head>
+      <title>Modyfikuj pozycję w menu</title>
+      <h:outputStylesheet name="style.css" library="css"/>
+   </h:head>
+   <h:body>
+   <ui:composition template="layout.xhtml">
+   <ui:define name="content">
+      <h1>Menu: Modyfikuj pozycję</h1>
+      <h:form>
+         <h:panelGrid columns="3">
+            <h:outputText value="ID:"/>
+            <h:inputText id="idInputText" required="true"
+               requiredMessage="Proszę podać ID"
+               validatorMessage="identyfikator to liczba całkowita"
+               value="#{menuBean.id}" maxlength="30">
+               <f:validateRegex pattern="\d+" />
+            </h:inputText>
+            <h:message id="idmessage" for="idInputText" styleClass="error"/>
+            <h:outputText value="Nazwa:"/>
+            <h:inputText id="nameInputText"
+               value="#{menuBean.name}" maxlength="30">
+            </h:inputText>
+            <h:message id="namemessage" for="nameInputText" styleClass="error"/>
+            <h:outputText value="Cena:"/>
+            <h:inputText id="priceInputText"
+               validatorMessage="cena to np. 12.50"
+               value="#{menuBean.price}" maxlength="6">
+               <f:validateRegex pattern="\d+\.\d{1,2}" />
+            </h:inputText>
+            <h:message id="pricemessage" for="priceInputText" styleClass="error"/>
+            <h:outputText value="Kategoria:"/>
+            <h:inputText id="categoryInputText"
+               value="#{menuBean.category}" maxlength="150">
+            </h:inputText>
+            <h:message id="categorymessafe" for="categoryInputText" styleClass="error"/>
+         </h:panelGrid>
+         <h:commandButton class="button" value="Zapisz" action="#{menuBean.update}">
+             <!--<f:ajax execute="nameInputText priceInputText categoryInputText"
+                    render="namemessage pricemessage categorymessage"/>-->
+         </h:commandButton>
+      </h:form>
+      <h:outputLink value="index.xhtml">Powrót</h:outputLink>
+   </ui:define>
+   </ui:composition>
+   </h:body>
+</html>
+
+
+<!--
+**********************************************************************
+* (C) Copyright 1992-2012 by Deitel & Associates, Inc. and           *
+* Pearson Education, Inc. All Rights Reserved.                       *
+*                                                                    *
+* DISCLAIMER: The authors and publisher of this book have used their *
+* best efforts in preparing the book. These efforts include the      *
+* development, research, and testing of the theories and programs    *
+* to determine their effectiveness. The authors and publisher make   *
+* no warranty of any kind, expressed or implied, with regard to      *
+* these programs or to the documentation contained in these books.   *
+* The authors and publisher shall not be liable in any event for     *
+* incidental or consequential damages in connection with, or         *
+* arising out of, the furnishing, performance, or use of these       *
+* programs.                                                          *
+**********************************************************************
+-->
+

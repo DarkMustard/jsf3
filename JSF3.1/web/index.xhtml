@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- index.html -->
+<!-- Displays an h:dataTable of the addresses in the address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   <h:head>
+      <title>Menu</title>
+      <h:outputStylesheet name="style.css" library="css"/>
+   </h:head>
+   <h:body> 
+   <ui:composition template="layout.xhtml">
+   <ui:define name="content">
+      
+      <h1>Menu</h1>
+      <h:panelGroup layout="block" id="optionscontainer" 
+        rendered="#{userBean.loggedin}">
+        <h:form>
+            <p>
+                <h:commandButton class="button" value="Dodaj" action="addentry"/>
+                <h:commandButton class="button" value="Usuń" action="deleteentry"/>
+                <h:commandButton class="button" value="Modyfikuj" action="modifyentry"/>
+            </p>
+        </h:form>
+        <h:form>
+            <h:outputText value="Nazwa:"/>
+            <h:inputText id="nameInputText" required="true"
+               requiredMessage="Proszę podać nazwę"
+               value="#{menuBean.selectquery}" maxlength="30">
+            </h:inputText>
+            <h:commandButton class="button" value="Wybierz" action="index"/>
+            <h:message for="nameInputText" styleClass="error"/>
+        </h:form> 
+        <h:form>
+            <h:commandButton class="button" value="Anuluj wybór" action="#{menuBean.clearSelection}"/>
+        </h:form>
+      </h:panelGroup>
+      <h:dataTable value="#{menuBean.select}" var="menuitem"
+         rowClasses="oddRows,evenRows" headerClass="header"
+         styleClass="table" cellpadding="20" cellspacing="0">
+         <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{menuitem.ID}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Nazwa</f:facet>
+            #{menuitem.NAME}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Cena</f:facet>
+            #{menuitem.PRICE}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Kategoria</f:facet>
+            #{menuitem.CATEGORY}
+         </h:column>
+      </h:dataTable>
+      <h:outputText value="#{menuBean.exceptioninfo}"/>
+   </ui:define>
+   </ui:composition>
+   </h:body>
+</html>
+
+
+<!--
+**********************************************************************
+* (C) Copyright 1992-2012 by Deitel & Associates, Inc. and           *
+* Pearson Education, Inc. All Rights Reserved.                       *
+*                                                                    *
+* DISCLAIMER: The authors and publisher of this book have used their *
+* best efforts in preparing the book. These efforts include the      *
+* development, research, and testing of the theories and programs    *
+* to determine their effectiveness. The authors and publisher make   *
+* no warranty of any kind, expressed or implied, with regard to      *
+* these programs or to the documentation contained in these books.   *
+* The authors and publisher shall not be liable in any event for     *
+* incidental or consequential damages in connection with, or         *
+* arising out of, the furnishing, performance, or use of these       *
+* programs.                                                          *
+**********************************************************************
+-->
+

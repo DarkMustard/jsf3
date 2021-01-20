@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <body>
+        <ui:composition>
+        <h:panelGroup layout="block" id="logincontainer" 
+        rendered="#{!userBean.loggedin}">
+        <h:form style="background-color: black;">
+            <p>
+                <h:outputText class="headertext" value="Login:"/>
+                <h:inputText id="loginInputText" required="true"
+                    requiredMessage="Proszę podać Login "
+                    value="#{userBean.login}" maxlength="30">
+                </h:inputText>
+                <h:outputText class="headertext" value=" Hasło:"/>
+                <h:inputText id="passInputText" required="true"
+                    requiredMessage="Proszę podać hasło"
+                    value="#{userBean.pass}" maxlength="30">
+                </h:inputText>
+                <h:commandButton class="button" value="Zaloguj" action="#{userBean.checkUser}"/>
+            </p>
+            <h:outputText value="#{userBean.exceptioninfo}"/>
+            <h:message for="loginInputText" styleClass="error"/>
+            <h:message for="passInputText" styleClass="error"/>
+        </h:form>
+        </h:panelGroup>
+        <h:panelGroup layout="block" id="loggedincontainer" 
+        rendered="#{userBean.loggedin}">
+        <h:form>
+            <h:outputText class="headertext" value="Zalogowano jako: #{userBean.pass} "/>
+            <h:commandButton class="button" value="Wyloguj" action="#{userBean.logout}"/>
+        </h:form>
+        </h:panelGroup>
+        <div id="main">
+		<nav class="navbar">
+			<!-- Brand/logo -->
+			<a class="navbar-brand" href="#myPage">
+				 <h:graphicImage name="images/logo2.jpg" alt="logo" width="100" height="80"/>
+			</a>
+			<!-- Links -->
+			<ul class="navbar-nav">
+                            <li><h:link class="nav-link" value="Home " outcome="main"><span class=" sr-only"></span></h:link></li>
+				<li><h:link class="nav-link" value="Menu" outcome="main"/></li>
+				<li><h:link class="nav-link" value="Product" outcome="main"/></li>
+				<li><h:link class="nav-link" value="Gallery" outcome="main"/></li>
+				<li><h:link class="nav-link" value="Database" outcome="index"/></li>
+				<li><h:link class="nav-link" value="About Us" outcome="main"/></li>
+			</ul>
+		</nav>
+	</div>   
+        </ui:composition>
+    </body>
+</html>

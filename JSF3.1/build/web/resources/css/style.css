@@ -1,0 +1,107 @@
+/* error message style */
+.error { 
+   color:red;
+}
+
+/* column header style */
+.header
+{ 
+   background-color: #724a2c;
+   color: white;
+   text-align: left;
+}
+
+/* row styles */
+.oddRows
+{
+   padding-left: 5px;
+   background-color: hsla(32, 66%, 88%, 1);
+}
+.evenRows
+{
+   padding-left: 5px;
+   background-color: rgba(176, 139, 116, 0.8);
+}
+
+.button {
+  background-color: #724a2c;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#headercontainer {
+   background-color: black; 
+}
+
+.headertext{
+    color: white;
+}
+
+/* table style */
+.table
+{
+   width: 750px;
+   display:inline;
+}
+
+body {
+	text-align: center;
+	background-color: rgba(176, 139, 116, 0.8);
+}
+
+div {
+	margin-top: 5px;
+	margin: 0 auto;
+
+	padding: 8px;
+}
+
+form {
+        display: inline-block;
+}
+
+#header {
+        margin-top: 5px;
+	margin: 0 auto;
+	border: 3px solid black;
+	background-color: hsla(32, 66%, 88%, 1);
+	box-shadow: 8px 5px 10px black;
+	border-radius: 20px;
+	padding: 8px;
+}
+
+#footer {
+        margin-top: 5px;
+	margin: 0 auto;
+	border: 3px solid black;
+	background-color: hsla(32, 66%, 88%, 1);
+	box-shadow: 8px 5px 10px black;
+	border-radius: 20px;
+	padding: 8px;
+}
+
+a {
+	color: black;
+}
+
+p {
+	text-align: justify;
+}
+
+img {
+	transition: transform 2s;
+}
+
+
+#title {
+	text-shadow: 6px 6px 7px #5d3b13;
+	font-size:5em;
+	font-family: 'Dancing Script', cursive;
+}
+
+
